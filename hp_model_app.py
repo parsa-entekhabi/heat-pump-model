@@ -81,7 +81,9 @@ if freq == 'Hourly':
             data['DayOfYear'] = data['DATE'].dt.dayofyear
             
             # Remove Unnamed Columns
-            data.drop(data.columns[[3,4,5,6,7,8]], axis=1, inplace=True)
+            cols_to_drop = [3,4,5,6,7,8]
+            cols_to_drop = [i for i in cols_to_drop if i < len(data.columns)]
+            data.drop(data.columns[cols_to_drop], axis=1, inplace=True)
             
             energy = data[f'{column_name}']
             data.insert(3, 'Energy', energy)
@@ -102,7 +104,9 @@ elif freq == "15-Minute":
             data.insert(1, 'TIME', date_range.time)
             
             # Remove Unnamed Columns
-            data.drop(data.columns[[3,4,5,6,7,8]], axis=1, inplace=True)
+            cols_to_drop = [3,4,5,6,7,8]
+            cols_to_drop = [i for i in cols_to_drop if i < len(data.columns)]
+            data.drop(data.columns[cols_to_drop], axis=1, inplace=True)
             
             energy = data[f'{column_name}'] * 0.25
             data.insert(3, 'Energy', energy)
@@ -143,7 +147,9 @@ if energy_file is not None and temp_file is not None and year is not None and co
         
                 
         # Remove Unnamed Columns
-        data.drop(data.columns[[3,4,5,6,7,8]], axis=1, inplace=True)
+        cols_to_drop = [3,4,5,6,7,8]
+        cols_to_drop = [i for i in cols_to_drop if i < len(data.columns)]
+        data.drop(data.columns[cols_to_drop], axis=1, inplace=True)
         
         energy = data[f'{column_name}'] * 0.25
         data.insert(3, 'Energy', energy)
