@@ -117,7 +117,7 @@ temp_file = st.file_uploader("Upload Temperature CSV File, use NOAA databases",
 
 
 
-heatingTemp = st.number_input("Enter cooling setpoint temperature (\u00b0F):", min_value=40.0, max_value=65.0, value=60.0)
+heatingTemp = st.number_input("Enter heating setpoint temperature (\u00b0F):", min_value=40.0, max_value=65.0, value=60.0)
 coolingTemp = st.number_input("Enter cooling setpoint temperature (\u00b0F):", min_value=65.0, max_value=90.0, value=75.0)
 
 if energy_file is not None and temp_file is not None and year is not None and column_name is not None:
