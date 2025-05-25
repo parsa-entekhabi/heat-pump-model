@@ -177,7 +177,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
         # Conver to Datetime
         data['DATE'] = pd.to_datetime(data['DATE'], format='%Y-%m-%d')
         data['TIME'] = pd.to_datetime(data['TIME'], format='%H:%M:%S')
-        tempData['DATE'] = pd.to_datetime(tempData['DATE'], format='%m/%d/%y')
+        tempData['DATE'] = pd.to_datetime(tempData['DATE'])
         
         data['HourOfYear'] = data['TIME'].dt.hour
         data['DayOfYear'] = data['DATE'].dt.dayofyear
