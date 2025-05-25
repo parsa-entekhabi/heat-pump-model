@@ -1,4 +1,4 @@
-# Energy Modeling App
+# Energy Modeling App (beta)
 
 This interactive Streamlit app models and visualizes hourly and monthly electricity usage for a building, comparing retrofit and heat pump energy efficiency scenarios. Originally designed for my senior design project working with beacon united methodist church, this app allows users to upload their own energy and temperature data, customize model assumptions, and generate savings estimates.
 
