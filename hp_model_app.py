@@ -321,7 +321,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
             return (EER_line.slope*T + EER_line.intercept)
         
         def coolingModel(T):
-            return 2*abs(-fit1.slope*T + fit1.intercept)
+            return 2*abs(fit1.slope*T + fit1.intercept)
         
         coolingEnergy = []
         
@@ -350,7 +350,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
         
         
         def heating(T):
-            return (-fit1.slope*T + fit1.intercept)
+            return (fit1.slope*T + fit1.intercept)
         
         def COP(T):
             return 0.0236*T + 2.2127
