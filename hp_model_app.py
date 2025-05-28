@@ -228,7 +228,8 @@ if energy_file is not None and temp_file is not None and year is not None and co
         ax.set_xlabel("Monthly Average Temperature (°F)")
         ax.set_ylabel("Avg Hourly Electricity for Month (kWh)")
         ax.set_title("BUMC Energy Demand vs. Temperature in 2024")
-        plt.show()
+
+        st.pyplot(fig1)
         
         hourlyEnergy['heatUsage'] = np.where(hourlyEnergy['Energy'] - 4 < 0, 0, hourlyEnergy['Energy'] - 4)
         hourlyEnergy['lighting'] = hourlyEnergy['Energy'] - hourlyEnergy['heatUsage']
