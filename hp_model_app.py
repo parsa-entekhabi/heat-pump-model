@@ -121,8 +121,6 @@ temp_file = st.file_uploader("Upload Temperature CSV File, use NOAA databases",
 
 
 
-heatingTemp = st.number_input("Enter heating setpoint temperature (\u00b0F):", min_value=40.0, max_value=65.0, value=60.0)
-coolingTemp = st.number_input("Enter cooling setpoint temperature (\u00b0F):", min_value=65.0, max_value=90.0, value=75.0)
 
 if energy_file is not None and temp_file is not None and year is not None and column_name is not None:
     try:
@@ -299,8 +297,22 @@ if energy_file is not None and temp_file is not None and year is not None and co
         
         
           ###  Create EER Function & Cooling Model
+
+        from scipy.optimize import fsolve
+      
+        def coolingModel(T):
+            return 2*abs(fit1.slope*T + fit1.intercept)
+
+        def heating(T):
+            return (fit1.slope*T + fit1.intercept)
+
         
+        x_intercept_cool = fsolve(coolingModel, 70)
+        x_intercept_heat = fsolve(heating, 60)
         
+        heatingTemp = st.number_input("Enter heating setpoint temperature (\u00b0F):", min_value=5, max_value=x_intercept_heat, value=x_intercept_heat)
+        coolingTemp = st.number_input("Enter cooling setpoint temperature (\u00b0F):", min_value=x_intercept_cool, max_value=90.0, value=x_intercept_cool)
+
         
         
         
@@ -327,8 +339,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
         def EER(T):
             return (EER_line.slope*T + EER_line.intercept)
         
-        def coolingModel(T):
-            return 2*abs(fit1.slope*T + fit1.intercept)
+        
         
         coolingEnergy = []
         
@@ -356,8 +367,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
         
         
         
-        def heating(T):
-            return (fit1.slope*T + fit1.intercept)
+        
         
         def COP(T):
             return 0.0236*T + 2.2127
