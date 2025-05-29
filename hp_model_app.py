@@ -15,11 +15,13 @@ This app allows you to:
 - Upload power usage data (hourly or 15-minute intervals)
 - Upload NOAA temperature data
 - Adjust heating and cooling setpoints
-- Simulate and compare energy usage with a heat pump/retrofit under different desired temperature conditions  
+- Use custom heat pump performance data
+- Simulate and compare energy usage with a heat pump/retrofit under different desired temperature conditions 
 
 **Supported Inputs**:
 - Energy CSV with **only one** column that represents power in kW
 - Temperature CSV from NOAA with daily high/low
+- Heat Pump COP and EER CSV performance parameters
 
 **Current Assumptions/Limitations**
 - Current building only uses resistive heating for temp control
@@ -28,8 +30,6 @@ This app allows you to:
 - Cooling model is 2x the usage of the heating model
 - Cannot support energy (kWh) input
 - Energy cost is fixed
-- Cannot enter a custom heat-pump
-  - Current model uses the DZ17VSA361B* + DV36FECC14A* performance data
 
 **Email me with any bugs!**
 - parsanick11@gmail.com
