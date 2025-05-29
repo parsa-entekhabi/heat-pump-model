@@ -65,7 +65,7 @@ freq = st.selectbox(
 
 if freq == 'Hourly':
     #data_type = st.selectbox('Select Data Type',('Energy (kWh)','Power (kW'))
-    st.write('Upload Hourly Energy CSV')
+    st.write('Upload Hourly Power CSV')
     energy_file = st.file_uploader('Upload CSV File', type='csv')
     date_range = pd.date_range(start=f'{year}-01-01', periods=8760, freq='h')
     if energy_file is not None and temp_file is not None:
@@ -95,7 +95,7 @@ if freq == 'Hourly':
             
 
 elif freq == "15-Minute":
-    st.write('Upload 15-Min Energy CSV')
+    st.write('Upload 15-Min Power CSV')
     energy_file = st.file_uploader('Upload CSV File', type='csv')
     date_range = pd.date_range(start=f'{year}-01-01', periods=35040, freq='15min')
     if energy_file is not None and temp_file is not None:
