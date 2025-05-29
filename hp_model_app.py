@@ -748,7 +748,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
     except Exception as e:
         st.error(f"Error processing files: {e}")
 else:
-    st.info("Please upload both CSV files and set cooling temperature to begin.")
+    st.info("Please upload both CSV files and define inputs to begin.")
 
 
     
