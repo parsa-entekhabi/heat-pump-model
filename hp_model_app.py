@@ -28,6 +28,8 @@ This app allows you to:
 - Cooling model is 2x the usage of the heating model
 - Cannot support energy (kWh) input
 - Energy cost is fixed
+- Cannot enter a custom heat-pump
+  - Current model uses the DZ17VSA361B* + DV36FECC14A* performance data
 
 **Email me with any bugs!**
 - parsanick11@gmail.com
