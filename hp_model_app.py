@@ -58,11 +58,6 @@ retro = retro/100
 cost = st.number_input("Enter energy cost per kWh in $",
                        value = 0.1241)
 
-freq = st.selectbox(
-    "What type of data are you using?",
-    ("Hourly", "15-Minute")
-)
-
 hp_input = st.selectbox(
     "Do you want to import custom heat pump performance data, or just use a deafult one (DZ17VSA361B* + DV36FECC14A*)",
     ('Default','Custom')
@@ -110,6 +105,10 @@ elif hp_input == 'Custom':
         def EER(T):
             return (EER_line.slope*T + EER_line.intercept)
 
+freq = st.selectbox(
+    "What type of data are you using?",
+    ("Hourly", "15-Minute")
+)
 
 if freq == 'Hourly':
     #data_type = st.selectbox('Select Data Type',('Energy (kWh)','Power (kW'))
