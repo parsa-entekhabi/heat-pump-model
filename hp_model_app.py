@@ -308,10 +308,10 @@ if energy_file is not None and temp_file is not None and year is not None and co
 
         st.subheader("Customize Comfort Settings")
       
-        x_intercept_cool = int(fsolve(coolingModel, 70))
-        x_intercept_heat = int(fsolve(heating, 60))
+        x_intercept_cool = float(fsolve(coolingModel, 70))
+        x_intercept_heat = float(fsolve(heating, 60))
         
-        heatingTemp = st.number_input("Enter heating setpoint temperature (\u00b0F):", min_value=5, max_value=x_intercept_heat, value=x_intercept_heat)
+        heatingTemp = st.number_input("Enter heating setpoint temperature (\u00b0F):", min_value=5.0, max_value=x_intercept_heat, value=x_intercept_heat)
         coolingTemp = st.number_input("Enter cooling setpoint temperature (\u00b0F):", min_value=x_intercept_cool, max_value=90.0, value=x_intercept_cool)
 
         
