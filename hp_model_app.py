@@ -280,8 +280,8 @@ if energy_file is not None and temp_file is not None and year is not None and co
 
         fig1, ax = plt.subplots(figsize=(12,6))
         ax.scatter(x1, y1, color = 'b')
-        ax.plot(tempValues1, line1, label = f'Slope = {fit1.slope:.2f}, Intercept = {fit1.intercept:.2f}', color = 'purple')
-        ax.plot(tempValues2, line2, label = f'Slope = {fit2.slope:.2f}, Intercept = {fit2.intercept:.2f}', color = 'green')
+        ax.plot(tempValues1, line1, label = f'Heating Load, Slope = {fit1.slope:.2f}, Intercept = {fit1.intercept:.2f}', color = 'purple')
+        ax.plot(tempValues2, line2, label = f'Base Load, Slope = {fit2.slope:.2f}, Intercept = {fit2.intercept:.2f}', color = 'green')
         ax.legend()
         ax.set_xlabel("Monthly Average Temperature (°F)")
         ax.set_ylabel("Avg Hourly Electricity for Month (kWh)")
