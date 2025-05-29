@@ -45,8 +45,8 @@ hourlyEnergy = None
 year = st.number_input("Enter year data is from (ie. 2023). Leap years currently don't work.", 
                        value=2023)
 
-column_name = st.text_input("Enter exact header name of column for power data",
-                            value=None)
+column_name = st.text_input("Enter exact header name of column for power data (case sensitive!)",
+                            value=Power)
 
 retro = st.number_input("Enter % building retrofit",
                             value=30)
