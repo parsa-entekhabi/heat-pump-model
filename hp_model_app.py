@@ -197,20 +197,31 @@ if energy_file is not None and temp_file is not None and year is not None and co
         hourlyEnergy['month_day'] = pd.to_datetime(hourlyEnergy['DayOfYear']).dt.strftime('%m-%d')
         tempData['month_day'] = pd.to_datetime(tempData['DATE']).dt.strftime('%m-%d')
         
+        fig, ax = plt.subplots(figsize=(12,6))
+
+        ax.scatter(monthlyTemp.values, monthlyEnergy)
+        ax.set_xlabel("Monthly Average Temperature (°F)")
+        ax.set_ylabel("Avg Hourly Electricity for Month (kWh)")
+        ax.set_title(f'Energy Demand vs. Temperature in {year}')
         
-        
-        
+        st.pyplot(fig)
         
             ### Separating Heating from Base Energy Usage
+
+        st.subheader('Separating Heating from Base Energy Usage')
+
+      
+        splitTemp = st.number_input("Enter a temperature value (\u00b0F) that is between the heating and base loads:")
+
         
-        
+      
         x1 = np.array(monthlyTemp.values)
         y1 = np.array(monthlyEnergy)
         
-        tempValues1 = x1[(x1 <= 60)]
-        energyValues1 = y1[(x1 <= 60)]
-        tempValues2 = x1[(x1 >= 60)]
-        energyValues2 = y1[(x1 >= 60)]
+        tempValues1 = x1[(x1 <= splitTemp)]
+        energyValues1 = y1[(x1 <= splitTemp)]
+        tempValues2 = x1[(x1 >= splitTemp)]
+        energyValues2 = y1[(x1 >= splitTemp)]
         
         fit1 = stats.linregress(tempValues1, energyValues1)
         line1 = fit1.slope*tempValues1 + fit1.intercept
