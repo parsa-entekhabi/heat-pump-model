@@ -306,7 +306,8 @@ if energy_file is not None and temp_file is not None and year is not None and co
         def heating(T):
             return (fit1.slope*T + fit1.intercept)
 
-        
+        st.subheader("Customize Comfort Settings")
+      
         x_intercept_cool = fsolve(coolingModel, 70)
         x_intercept_heat = fsolve(heating, 60)
         
