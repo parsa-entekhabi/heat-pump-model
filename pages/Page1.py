@@ -9,7 +9,7 @@ from scipy import stats
 import streamlit as st
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Heat Pump Model", layout="wide", page_icon='⚡')
+st.set_page_config(page_title="Gas", layout="wide", page_icon='⚡')
 st.title("Page 1")
 st.write("This is Page 1.")
 
