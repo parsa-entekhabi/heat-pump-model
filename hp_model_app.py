@@ -44,6 +44,7 @@ date_range = None
 power_column = None
 hourlyEnergy = None
 dataType = None
+gasUnit = None
 
 dataType = st.selectbox(
   "Which bill are we analyzing? (gas doesn't currently work)",
