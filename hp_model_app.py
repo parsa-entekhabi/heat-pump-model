@@ -198,7 +198,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
     try:
         from electricDataProcessing import electricModel
 
-        electricModel(energy_file, temp_file)
+        electricModel(energy_file, temp_file, date_range)
         
         
 
