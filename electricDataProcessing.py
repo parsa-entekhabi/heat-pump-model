@@ -5,7 +5,7 @@ from scipy import stats
 import streamlit as st
 import plotly.graph_objects as go
 
-def electricModel(energy_file, temp_file, date_range):
+def electricModel(energy_file, temp_file, date_range, column_name, retro, cost):
   
   data = pd.read_csv(energy_file)
   tempData = pd.read_csv(temp_file)
