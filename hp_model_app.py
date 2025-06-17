@@ -63,7 +63,7 @@ elif gasUnit == "MJ":
   gasConv = (30.36/109.3)
 elif gasUnit == "kWh":
   gasConv = 1
-else:
+if gasUnit == None:
   gasConv = 1
 
 year = st.number_input("Enter year data is from (ie. 2023). Leap years currently don't work.", 
