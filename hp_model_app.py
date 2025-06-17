@@ -43,6 +43,28 @@ temp_file = None
 date_range = None
 power_column = None
 hourlyEnergy = None
+dataType = None
+
+dataType = st.selectbox(
+  "Which bill are we analyzing? (gas doesn't currently work)",
+  ('Electric', 'Gas')
+)
+
+if dataType == 'Gas':
+  gasUnit = st.radio("Select Energy Unit", ["CCF", "Btu", "Therms", "MJ", "kWh"])
+
+if gasUnit == "CCF":
+  gasConv = 30.36
+elif gasUnit == "Btu":
+  gasConv = (30.36/103,600)
+elif gasUnit == "Therms":
+  gasConv = (30.36/1.036)
+elif gasUnit == "MJ":
+  gasConv = (30.36/109.3)
+elif gasUnit == "kWh":
+  gasConv = 1
+else:
+  gasConv = 1
 
 year = st.number_input("Enter year data is from (ie. 2023). Leap years currently don't work.", 
                        value=2023)
