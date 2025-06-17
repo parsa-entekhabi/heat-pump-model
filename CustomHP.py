@@ -15,11 +15,11 @@ for i, j in zip(totalBTU, totalWATT):
 temp = np.arange(75,120, 5)
 EER_line = stats.linregress(temp, EER)
 
-def EERdefault(T):
+def EER(T):
     return (EER_line.slope*T + EER_line.intercept)
 
 # Had the COP values already from another python script
-def COPdefault(T):
+def COP(T):
     return 0.0236*T + 2.2127
 
 # Customs:
