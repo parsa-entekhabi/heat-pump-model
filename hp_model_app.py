@@ -91,41 +91,15 @@ customEER = None
 
 if hp_input == 'Default':
     customCOP = 1
+    customEER = 1
     
 
 elif hp_input == 'Custom':
     st.write('COP Data')
     customCOP = st.file_uploader("Upload CSV with two columns named 'Temp' and 'COP' (case sensitive)", type='csv')
-    if customCOP is not None:
-        customCOPfile = pd.read_csv(customCOP)
-        
-        temp = customCOPfile['Temp']
-        COP = customCOPfile['COP']
-        
-        COP_line = stats.linregress(temp,COP)
-        
-        def COP(T):
-            return COP_line.slope*T + COP_line.intercept
     
     st.write('EER Data')
     customEER = st.file_uploader("Upload CSV with three columns named 'totalBTU' 'totalWATT' and 'temp' (case sensitive)", type='csv')
-    if customEER is not None:
-        customEERfile = pd.read_csv(customEER)
-        
-        totalBTU = customEERfile['totalBTU']
-        totalWATT = customEERfile['totalWATT']
-        temp =  customEERfile['temp']
-        
-        EER = []
-
-        for i, j in zip(totalBTU, totalWATT):
-            sol = i/j
-            EER.append(sol)
-
-        EER_line = stats.linregress(temp, EER)
-
-        def EER(T):
-            return (EER_line.slope*T + EER_line.intercept)
 
 freq = st.selectbox(
     "What type of data are you using?",
@@ -197,7 +171,7 @@ if energy_file is not None and temp_file is not None and year is not None and co
     try:
         from electricDataProcessing import electricModel
 
-        electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year)
+        electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year, customCOP, customEER)
         
         
 
