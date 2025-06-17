@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 def electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year, customCOP, customEER):
 
   if customCOP == 1 and customEER == 1:
-    from CustomHP import COPdefault, EERdefault
+    from CustomHP import COP, EER
   
   else:
     from CustomHP import customCOPslope, customCOPintercept, customEERslope, customEERintercept
