@@ -5,7 +5,7 @@ from scipy import stats
 import streamlit as st
 import plotly.graph_objects as go
 
-st.set_page_config(page_title="Heat Pump Model", layout="wide", page_icon='⚡')
+st.set_page_config(page_title="Heat Pump Model", layout="wide", page_icon='⚡', initial_sidebar_state="expanded")
 st.title("Heat Pump Building Modeling")
 
 st.markdown("""
