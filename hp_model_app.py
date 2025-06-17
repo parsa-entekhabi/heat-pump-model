@@ -196,7 +196,7 @@ temp_file = st.file_uploader("Upload Temperature CSV File, use NOAA databases",
 
 if energy_file is not None and temp_file is not None and year is not None and column_name is not None:
     try:
-        from electricDataProcessing.py import electricModel
+        from electricDataProcessing import electricModel
 
         electricModel(energy_file, temp_file)
         
