@@ -90,8 +90,7 @@ customCOP = None
 customEER = None
 
 if hp_input == 'Default':
-    from CustomHP import EER
-    from CustomHP import COP
+    customCOP = 1
     
 
 elif hp_input == 'Custom':
