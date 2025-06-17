@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import streamlit as st
 import plotly.graph_objects as go
+from hp_model_app import EER, COP
 
 def electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year):
   
