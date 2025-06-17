@@ -5,7 +5,24 @@ from scipy import stats
 import streamlit as st
 import plotly.graph_objects as go
 
-def electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year):
+def electricModel(energy_file, temp_file, date_range, column_name, retro, cost, year, customCOP, customEER):
+
+  if customCOP == 1 and customEER == 1:
+    from CustomHP import COPdefault, EERdefault
+  
+  else:
+    from CustomHP import customCOPslope, customCOPintercept, customEERslope, customEERintercept
+    customCOPfile = pd.read_csv(customCOP)
+    def COP(T):
+      return customCOPslope(customCOPfile) * T + customCOPintercept(customCOPfile)
+    
+    customEERfile = pd.read(customEER)
+    def EER(T):
+      return customEERslope(customEERfile) * T + customEERintercept(customEERfile)
+
+
+
+
   
   data = pd.read_csv(energy_file)
   tempData = pd.read_csv(temp_file)
